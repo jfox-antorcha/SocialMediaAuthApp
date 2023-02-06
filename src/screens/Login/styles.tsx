@@ -11,14 +11,16 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   content: {
-    flex: 3,
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   button: {
     width: 192,
     height: 48,
     borderRadius: 15,
+    borderWidth: 1,
   },
   title: {
     fontSize: 24,

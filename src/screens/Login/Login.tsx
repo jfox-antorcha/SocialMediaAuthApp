@@ -1,11 +1,15 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {GoogleSigninButton} from '@react-native-google-signin/google-signin';
+import LoginButton from '../../components/LoginButton';
+import useAppleAuth from '../../hooks/useAppleAuth';
+import useFacebookAuth from '../../hooks/useFacebookAuth';
 import useGoogleAuth from '../../hooks/useGoogleAuth';
 import styles from './styles';
 
 const Login = () => {
+  const appleAuth = useAppleAuth();
   const googleAuth = useGoogleAuth();
+  const facebookAuth = useFacebookAuth();
 
   return (
     <View style={styles.container}>
@@ -16,12 +20,9 @@ const Login = () => {
         </Text>
       </View>
       <View style={styles.content}>
-        <GoogleSigninButton
-          style={styles.button}
-          size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={() => googleAuth()}
-        />
+        <LoginButton brand="google" onPress={() => googleAuth()} />
+        <LoginButton brand="apple" onPress={() => appleAuth()} />
+        <LoginButton brand="facebook" onPress={() => facebookAuth()} />
       </View>
     </View>
   );
